@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
 from ui.forms import RegistrationForm
+from django.contrib.auth import login
 
 
 # Create your views here.
@@ -19,6 +20,8 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid:
             form.save()
+            user = User.objects.last()
+            login(request, user)
             return redirect('index')
     else:
         form = RegistrationForm()
@@ -27,6 +30,7 @@ def register(request):
      
     return render(request, template_name = 'account/register.html', context = args)
     
-
-def login(request):
-    return render(request, template_name = 'account/login.html')
+# 
+# def login(request):
+#      
+#     return render(request, template_name = 'account/login.html')
