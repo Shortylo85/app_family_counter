@@ -2,4 +2,13 @@
 
 {% block content %}
   <h1>Register</h1>
+  <form class="" action= {% url 'register' %} method="post">
+    {% csrf_token %}
+
+    {% for field in form %}
+      {{ field.label_tag }}{{ field }}</br>
+    {% endfor %}
+    <input type="submit" name="" value="submit">
+  </form>
+
 {% endblock %}
