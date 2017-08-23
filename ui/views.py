@@ -1,15 +1,14 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Index")
+    return render(request, template_name = "ui/index.html")
 
 def getMap(request):
-    return HttpResponse("getMap")
+    return render(request, template_name = 'ui/map.html')
 
 def register(request):
-    return HttpResponse("Register")
+    return render(request, template_name = 'account/register.html')
 
 def login(request):
-    return HttpResponse("Login")
+    return render(request, template_name = 'account/login.html')
