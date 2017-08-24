@@ -1,8 +1,9 @@
+from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
 from ui.forms import RegistrationForm
-from django.contrib.auth import login
+from ui.models import City
 
 
 # Create your views here.
@@ -12,7 +13,14 @@ def index(request):
     return render(request, template_name = "ui/index.html", context = built_context)
 
 def getMap(request):
-    return render(request, template_name = 'ui/map.html')
+    
+    cities = City.objects.all()
+    
+    built_context = {
+        'cities': cities,
+    }
+    
+    return render(request, template_name = 'ui/map.html', context = built_context)
 
 def register(request):
     

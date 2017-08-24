@@ -23,7 +23,7 @@ class Command(BaseCommand):
         for row in csv_file:
             
             data = {
-               'city_read': row[3],
+               'city_name': row[3],
                 'lat': row[5],
                 'lng': row[6],
             }
