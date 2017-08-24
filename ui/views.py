@@ -14,7 +14,9 @@ def index(request):
 
 def getMap(request):
     
-    cities = City.objects.all()
+    cities = City.objects.filter(city_name = 'New York')
+#     
+#     print(cities.city_name)
     
     built_context = {
         'cities': cities,

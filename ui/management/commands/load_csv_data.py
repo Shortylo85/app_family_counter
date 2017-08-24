@@ -21,14 +21,17 @@ class Command(BaseCommand):
         counter = 0
         
         for row in csv_file:
+            city = City()
+#             data = {
+#                'city_name': row[3],
+#                 'lat': row[5],
+#                 'lng': row[6],
+#             }
+            city.city_name = row[3]
+            city.lat = row[5]
+            city.lng = row[6]
             
-            data = {
-               'city_name': row[3],
-                'lat': row[5],
-                'lng': row[6],
-            }
-            
-            City.objects.get_or_create(data)
+            city.save()
             
             if counter % 1000 == 0:
                 print("imported {} entries".format(counter))
