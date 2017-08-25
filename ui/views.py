@@ -61,20 +61,21 @@ def getTerm(request):
             
             result.append(city_json)
         data = json.dumps(result)
-        print(data)
+        print('this is results\n',result)
+        print("THIS IS CITIES ---------> ", data)
     else:
         data = 'fail'
     mimetype = 'application/json'
     
     return HttpResponse(data, mimetype)
 
-# def saveLocation(request):
-#     
-#     if request.method == 'POST':
-#         return HttpResponse(request)
-    
-    
-    
+def saveLocation(request):
+     
+    if request.method == 'POST':
+        return HttpResponse(request.method)
+
+        
+        
     
     
     
