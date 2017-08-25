@@ -8,5 +8,5 @@ class City(models.Model):
     lng = models.DecimalField(max_digits=7,decimal_places=4)
     
 class UserCity(models.Model):
-    user = models.ForeignKey(User)
-    city = models.ForeignKey(City)
+    user = models.ForeignKey(User, blank=True, null=True)
+    city = models.ForeignKey(City, blank=True, null=True)
