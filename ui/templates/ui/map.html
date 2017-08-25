@@ -7,7 +7,7 @@
     #map {
       height: 85%;
       position: relative;
-      z-index: 99;
+      z-index: -1;
     }
     /* Optional: Makes the sample page fill the window. */
     html, body {
@@ -71,10 +71,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIayL1Ao1hTSk7Y55ewEePkNy
 
 <script type="text/javascript">
   $(function() {
-    // var source = [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ];
+    var source = [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ];
     $("#search_term").autocomplete({
-      source: "/map/get-term/",
-      // source: source,
+      // source: "/map/get-term/",
+      source: source,
       minLength: 2,
     });
   });
