@@ -27,12 +27,14 @@ class Command(BaseCommand):
 #                 'lat': row[5],
 #                 'lng': row[6],
 #             }
+            city.country = row[1]
             city.city_name = row[3]
             city.lat = row[5]
             city.lng = row[6]
             
             city.save()
             
-            if counter % 1000 == 0:
+            if counter > 2000:
+                break
                 print("imported {} entries".format(counter))
             counter += 1

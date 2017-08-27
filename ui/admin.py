@@ -4,7 +4,7 @@ from ui.models import City, UserCity
 
 
 class AdminCity(admin.ModelAdmin):
-    list_display = ['id','city_name' ,'lat', 'lng']
+    list_display = ['id','city_name','country', 'lat', 'lng']
     class Meta:    
         model = City
         
