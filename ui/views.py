@@ -2,6 +2,7 @@ import json
 
 from django.contrib.auth import login
 from django.contrib.auth.models import User
+from django.contrib.auth.views import logout
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -48,7 +49,11 @@ def register(request):
      
     return render(request, template_name = 'account/register.html', context = args)
 
-
+def user_logout(request):
+    logout(request)
+    
+    return redirect('index')
+    
 def getTerm(request):
     if request.is_ajax():
         search_term = request.GET.get('term','')

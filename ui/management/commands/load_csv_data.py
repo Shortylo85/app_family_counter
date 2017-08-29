@@ -12,9 +12,15 @@ class Command(BaseCommand):
     def handle(self, **args):
         print("Start")
         
-        directory = "/home/danijel/Downloads/csv_files/family_counter/GeoLite2-City-CSV_20170801"
+        # Direct download file from google drive 
+# 'https://drive.google.com/uc?export=download&id=0B3U2lEjglUqHOHYzX1ZOWlNOeDg'
         
-        locations = open(os.path.join(directory, 'GeoLiteCity-Location.csv'))
+#         directory = "/home/danijel/WORKSPACE/my_projects/app_family_counter"       
+#         locations = open(os.path.join(directory, 'city_data.csv'))
+#         
+        directory = "/home/danijel/Downloads/csv_files/family_counter/GeoLite2-City-CSV_20170801"
+        locations = open(os.path.join(directory, 'city_data.csv'))  
+#         locations = open(os.path.join(directory, 'GeoLiteCity-Location.csv'))
         
         csv_file = csv.reader(locations)
         
@@ -34,7 +40,10 @@ class Command(BaseCommand):
             
             city.save()
             
+            print("imported \r{:.02f} %".format((counter/2000)*100), end='')
+            
             if counter > 2000:
                 break
-                print("imported {} entries".format(counter))
+                print("Import is complete")
+                
             counter += 1
