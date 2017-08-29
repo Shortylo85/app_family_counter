@@ -4,3 +4,4 @@
 .settings/
 *.gz
 *.csv
+client_secrets.json
