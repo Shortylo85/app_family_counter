@@ -2,4 +2,5 @@
 .pydevproject
 *.pyc
 .settings/
+*.gz
 *.csv
