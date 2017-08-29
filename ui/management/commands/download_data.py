@@ -34,7 +34,7 @@ class Command(BaseCommand):
 
     def handle(self, **args):
         self.downloadCSV(self.csv_url)
-        directory = "/home/danijel/WORKSPACE/my_projects/app_family_counter"       
+        directory = os.getcwd()       
         location = open(os.path.join(directory, 'city_data.csv'))
  
         csv_file = csv.reader(location)
@@ -51,10 +51,10 @@ class Command(BaseCommand):
                 
             city.save()
                 
-            print("imported \r{:.02f} % into database".format((counter/1000)*100), end='')
+            print("\r{:.02f} % into database imported".format((counter/1000)*100), end='')
                 
             if counter > 1000:
                 break
-            print("Import is complete")
+                print("Import is complete")
                     
             counter += 1
